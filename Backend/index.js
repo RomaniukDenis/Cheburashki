@@ -7,14 +7,38 @@ const server = http.createServer((req, res)=>{
     if(req.url.startsWith("/like")){
         let index = req.url.lastIndexOf("/");
         let name = req.url.substring(index+1);
+        db = JSON.parse(
+            fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
+                if(err){
+                    res.end(err);
+                }
+            })
+        );
+        let i = db.findIndex((image)=>{
+            image.name = name 
+        })
+        db[i].like++;
+        fs.writeFileSync((path.join(__dirname, "data.json"), db));
     }
     if(req.url.startsWith("/dislike")){
         let index = req.url.lastIndexOf("/");
         let name = req.url.substring(index+1);
+        db = JSON.parse(
+            fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
+                if(err){
+                    res.end(err);
+                }
+            })
+        );
+        let i = db.findIndex((image)=>{
+            image.name = name 
+        })
+        db[i].dislike++;
+        fs.writeFileSync((path.join(__dirname, "data.json"), db));
     }
     if(method == "POST"){
         db = JSON.parse(
-            fs.readFileSync(path.join(__dirname, data.json), (err)=>{
+            fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
                     res.end(err);
                 }
@@ -30,7 +54,7 @@ const server = http.createServer((req, res)=>{
     }
     else{
         if(method == "GET"){
-            let images = fs.readFileSync(path.join(__dirname, data.json), (err)=>{
+            let images = fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
                     res.end(err);
                 }
