@@ -97,4 +97,26 @@ input{
   width: 100px;
   height: auto;
 }
+.header{
+  width: 100%;
+  background-color: rgb(50, 241, 2);
+  position: fixed;
+  top:0;
+  height: 20%;
+  display: flex;
+
+  align-items: center;
+}
+.header img{
+
+  height: 80%;
+  margin-left: 1%;
+  width: auto;
+}
+.header p{
+
+  
+  margin-left: 5%;
+  font-size: 50px;
+}
 
