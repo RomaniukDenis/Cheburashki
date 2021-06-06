@@ -13,12 +13,15 @@ xhr.onload(()=>{
 })
 xhr.send();
 
-xhr.open("POST", url);
+function Post(){
+    xhr.open("POST", url);
 
-    let post = {
-        name: document.getElementById(""),
-        url: document.getElementById("")
-    }
+        let post = {
+            name: document.getElementById(""),
+            url: document.getElementById("")
+        }
     
-xhr.send(JSON.stringify(post));
+    xhr.send(JSON.stringify(post));
+}
+
 
