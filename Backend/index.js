@@ -61,10 +61,7 @@ const server = http.createServer((req, res)=>{
         });
         res.end(images);
     }
-    else{
-        res.writeHead(404);
-        res.end("404")
-    }
+
 });
 
 server.listen(8888);
