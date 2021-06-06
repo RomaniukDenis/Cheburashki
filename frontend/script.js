@@ -4,13 +4,14 @@ const url = "http://localhost:8888";
 
 xhr.open("GET", url);
 
-xhr.onload(()=>{
+xhr.onload = () => {
     let res = JSON.parse(xhr.response);
+    console.log(res);
     document.getElementById("post").innerHTML = `
         <h1>${res.name}</h1>
-        <img src="${res.name}"></h1>
+        <img src="${res.url}"></h1>
     `;
-})
+}
 xhr.send();
 
 function Post(){

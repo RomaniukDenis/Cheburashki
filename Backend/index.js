@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const server = http.createServer((req, res)=>{
+    res.setHeader("Access-Control-Allow-Origin", "*");
     let data;
     if(req.url.startsWith("/like")){
         let index = req.url.lastIndexOf("/");
@@ -36,7 +37,7 @@ const server = http.createServer((req, res)=>{
         db[i].dislike++;
         fs.writeFileSync((path.join(__dirname, "data.json"), db));
     }
-    if(method == "POST"){
+    if(req.method == "POST"){
         db = JSON.parse(
             fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
@@ -52,17 +53,17 @@ const server = http.createServer((req, res)=>{
             db.push(post);
         })
     }
+    if(req.method == "GET"){
+        let images = fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
+            if(err){
+                res.end(err);
+            }
+        });
+        res.end(images);
+    }
     else{
-        if(method == "GET"){
-            let images = fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
-                if(err){
-                    res.end(err);
-                }
-                else{
-                    res.end(images)
-                }
-            });
-        }
+        res.writeHead(404);
+        res.end("404")
     }
 });
 
