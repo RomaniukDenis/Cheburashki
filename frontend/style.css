@@ -72,13 +72,25 @@ input{
 
 .container{
     max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     min-height: 100vh;
     margin: 0 auto;
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 0 5px 0;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.4);
+    
 }
+.post{
+  display: flex;
+  width: 100%;
+}
+.post input{
+  width: 48%;
+}
+
 .support{
   background-color: #fff;
   display: flex;

@@ -6,7 +6,7 @@ xhr.open("GET", url);
 
 xhr.onload(()=>{
     let res = JSON.parse(xhr.response);
-    document.getElementById("").innerHTML = `
+    document.getElementById("post").innerHTML = `
         <h1>${res.name}</h1>
         <img src="${res.name}"></h1>
     `;
@@ -17,8 +17,8 @@ function Post(){
     xhr.open("POST", url);
 
         let post = {
-            name: document.getElementById(""),
-            url: document.getElementById("")
+            name: document.getElementById("name"),
+            url: document.getElementById("link")
         }
     
     xhr.send(JSON.stringify(post));
