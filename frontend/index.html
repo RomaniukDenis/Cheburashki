@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="header"><img src="Evrophoting_logo.png" alt="">
-        <p>Europhoting</p> 
+        <p>Europhoting</p> <input type="text" id="bg" placeholder="Background"><button onclick="ChangeFone()">Change</button> </div>
     </div>
-    <div class="container">
+    <div class="container" id="container">
         <div id="post"></div>
 
     </div>
@@ -23,6 +23,13 @@
               <button class="btn btn-primary">Post</button>
           </section>
     </div>
+
+
 </body>
 <script src="script.js"></script>
+<script>
+    function ChangeFone(){
+        document.getElementById("container").style.backgroundColor = document.getElementById("bg").value;
+    }
+</script>
 </html>

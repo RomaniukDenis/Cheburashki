@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const server = http.createServer((req, res)=>{
+    console.log(req.url);
     res.setHeader("Access-Control-Allow-Origin", "*");
     let data;
     if(req.url.startsWith("/like")){
@@ -24,6 +25,7 @@ const server = http.createServer((req, res)=>{
     if(req.url.startsWith("/dislike")){
         let index = req.url.lastIndexOf("/");
         let name = req.url.substring(index+1);
+        console.log(name)
         db = JSON.parse(
             fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
@@ -49,8 +51,14 @@ const server = http.createServer((req, res)=>{
         req.on('data',(chunk)=>{
            post += chunk;
         });
-        res.on('end',()=>{
-            db.push(post);
+        req.on('end',()=>{
+            db.push(JSON.parse(post));
+            fs.writeFile(path.join(__dirname, "data.json"), JSON.stringify(db), (err)=>{
+                if(err){
+                    res.end(err);
+                }
+            });
+            res.end();
         })
     }
     if(req.method == "GET"){

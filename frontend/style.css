@@ -98,7 +98,7 @@ input{
     justify-content: flex-end;
     height: 68vh;
     margin-right: 20%;
-    margin-left: 20%;
+    margin-left: 20%;   
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 0 5px 0;
     box-sizing: border-box;
@@ -114,12 +114,19 @@ input{
   display: flex;
   width: 100%;
   position: fixed;
-  bottom: 0;
+
+  bottom:0;
+  
+}
+#post {
+  overflow-y: scroll;
 }
 
 .post input{
- width: 46%; 
- margin: 10px;
+
+  width: 46%;
+  margin: 10px;
+
 }
 
 .header{
@@ -144,5 +151,15 @@ input{
   font-size: 50px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: rgb(10, 34, 4);
+}
+.one img{
+  height: 100px;
+  widows: auto;
+}
+.one button{
+  border-radius: 100px;
+  margin-top: 10px;
+  background-color: grey;
+  border: none;
 }
 
