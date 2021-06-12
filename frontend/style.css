@@ -184,6 +184,9 @@ input{
   transition: .5s;
 
 }
+#bg{
+  margin-left: 20px;
+}
 
 .container button:hover {
   background-position: right center;
