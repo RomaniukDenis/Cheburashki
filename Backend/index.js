@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 
 const server = http.createServer((req, res)=>{
-    console.log(req.url);
     res.setHeader("Access-Control-Allow-Origin", "*");
     let data;
     if(req.url.startsWith("/like")){
@@ -16,16 +15,14 @@ const server = http.createServer((req, res)=>{
                 }
             })
         );
-        let i = db.findIndex((image)=>{
-            image.name = name 
-        })
-        db[i].like++;
-        fs.writeFileSync((path.join(__dirname, "data.json"), db));
+        let i = db.findIndex(image=>image.name == name)     
+        db[i].likes++;
+        fs.writeFileSync(path.join(__dirname, "data.json"), JSON.stringify(db),err=>{});
+        res.end();
     }
-    if(req.url.startsWith("/dislike")){
+    else if(req.url.startsWith("/dislike")){
         let index = req.url.lastIndexOf("/");
         let name = req.url.substring(index+1);
-        console.log(name)
         db = JSON.parse(
             fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
@@ -33,13 +30,12 @@ const server = http.createServer((req, res)=>{
                 }
             })
         );
-        let i = db.findIndex((image)=>{
-            image.name = name 
-        })
-        db[i].dislike++;
-        fs.writeFileSync((path.join(__dirname, "data.json"), db));
+        let i = db.findIndex(image=>image.name == name)     
+        db[i].dislikes++;
+        fs.writeFileSync(path.join(__dirname, "data.json"), JSON.stringify(db),err=>{});
+        res.end();
     }
-    if(req.method == "POST"){
+    else if(req.method == "POST"){
         db = JSON.parse(
             fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
@@ -61,7 +57,7 @@ const server = http.createServer((req, res)=>{
             res.end();
         })
     }
-    if(req.method == "GET"){
+    else if(req.method == "GET"){
         let images = fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
             if(err){
                 res.end(err);
