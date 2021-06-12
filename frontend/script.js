@@ -10,7 +10,7 @@ xhr.onload = () => {
     res.map((image)=>{
         let one = document.createElement("div");
         one.className = "one";
-        one.id =  "one";
+        one.id =  `one${image.name}`;
         document.getElementById("post").appendChild(one);
         let btnLike= document.createElement("button");
         btnLike.className = "btnLike";
@@ -23,12 +23,12 @@ xhr.onload = () => {
 
         btnDisLike.innerText = "Disikes: " + image.dislikes;
 
-        document.getElementById("one").innerHTML = `
+        document.getElementById(`one${image.name}`).innerHTML = `
         <h1>${image.name}</h1>
         <img src="${image.url}">
     `
-    document.getElementById("one").appendChild(btnDisLike);
-    document.getElementById("one").appendChild(btnLike);
+    document.getElementById(`one${image.name}`).appendChild(btnDisLike);
+    document.getElementById(`one${image.name}`).appendChild(btnLike);
 
     });
 
@@ -38,9 +38,8 @@ xhr.onload = () => {
 xhr.send();
 
 function Post(){
-    xhr.open("POST", url);
     let xhr = new XMLHttpRequest();
-
+    xhr.open("POST", url);
         let post = {
             name: document.getElementById("name").value,
             url: document.getElementById("link").value,
