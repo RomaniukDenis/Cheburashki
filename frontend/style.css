@@ -81,13 +81,16 @@ input{
 }
 
 .container{
-    max-width: 80%;
-    margin-top: 20%;
+    max-width: 60%;
+    margin-top: 10%;
     display: flex;
+    margin-bottom: 5%;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 100vh;
-    margin: 0 auto;
+    min-height: 68vh;
+    margin-right: 20%;
+    margin-left: 20%;
+    
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 0 5px 0;
     box-sizing: border-box;
@@ -99,6 +102,9 @@ input{
 .post{
   display: flex;
   width: 100%;
+  position: fixed;
+  bottom:0;
+  
 }
 .post input{
   width: 48%;
@@ -143,5 +149,14 @@ input{
   
   margin-left: 5%;
   font-size: 50px;
+}
+#one img{
+  height: 100px;
+  widows: auto;
+}
+#one button{
+  border-radius: 100px;
+  background-color: grey;
+  border: none;
 }
 

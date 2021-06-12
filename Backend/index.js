@@ -50,7 +50,13 @@ const server = http.createServer((req, res)=>{
            post += chunk;
         });
         res.on('end',()=>{
-            db.push(post);
+            db.push(JSON.parse(post));
+            fs.writeFile(path.join(path.join(__dirname, "data.json"), JSON.stringify(db)), (err)=>{
+                if(err){
+                    res.end(err);
+                }
+            });
+            res.end();
         })
     }
     if(req.method == "GET"){

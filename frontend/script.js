@@ -14,10 +14,12 @@ xhr.onload = () => {
         document.getElementById("post").appendChild(one);
         let btnLike= document.createElement("button");
         btnLike.className = "btnLike";
+        btnLike.addEventListener("click", ()=>{window.location=`http://localhost8888/like/${image.name}`})
 
         btnLike.innerText = "Likes: " + image.likes;
         let btnDisLike= document.createElement("button");
         btnLike.className = "btnDisLike";
+        btnDisLike.addEventListener("click", ()=>{window.location=`http://localhost8888/dislike/${image.name}`})
 
         btnDisLike.innerText = "Disikes: " + image.dislikes;
 
@@ -37,10 +39,11 @@ xhr.send();
 
 function Post(){
     xhr.open("POST", url);
+    let xhr = new XMLHttpRequest();
 
         let post = {
-            name: document.getElementById("name"),
-            url: document.getElementById("link"),
+            name: document.getElementById("name").value,
+            url: document.getElementById("link").value,
             likes: 0,
             dislikes: 0
         }
