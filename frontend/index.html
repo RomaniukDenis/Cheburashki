@@ -9,14 +9,19 @@
     <title>Europhoting</title>
 </head>
 <body>
-    <div class="header"><img src="Evrophoting_logo.png" alt="">
-        <p>Europhoting</p> <input type="text" id="bg" placeholder="Background"><button onclick="ChangeFone()">Change</button> </div>
+    <div class="header">
+        <img src="Evrophoting_logo.png" alt="">
+        <p>Europhoting</p> 
+     </div>
     </div>
     <div class="container" id="container">
-        <div id="post"></div>
+        <nobr><p>        <input type="text" id="bg" placeholder="Change background">
+            <button id="btnC" onclick="ChangeFone()">Change</button></p></nobr>
 
-    </div>
-    <div class="post">    
+        <div id="post"></div>
+</div>
+
+    <div class="post">  
         <input id="name" type="text" placeholder="Name">
         <input id="link" type="text" placeholder="link to picture">
         <section class="theta" onclick="Post()">
@@ -31,5 +36,6 @@
     function ChangeFone(){
         document.getElementById("container").style.backgroundColor = document.getElementById("bg").value;
     }
+
 </script>
 </html>
