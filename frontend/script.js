@@ -14,12 +14,12 @@ xhr.onload = () => {
         document.getElementById("post").appendChild(one);
         let btnLike= document.createElement("button");
         btnLike.className = "btnLike";
-        btnLike.addEventListener("click", ()=>{window.location=`http://localhost8888/like/${image.name}`})
+        btnLike.addEventListener("click", ()=>{window.location=`http://localhost:8888/like/${image.name}`})
 
         btnLike.innerText = "Likes: " + image.likes;
         let btnDisLike= document.createElement("button");
         btnLike.className = "btnDisLike";
-        btnDisLike.addEventListener("click", ()=>{window.location=`http://localhost8888/dislike/${image.name}`})
+        btnDisLike.addEventListener("click", ()=>{window.location=`http://localhost:8888/dislike/${image.name}`})
 
         btnDisLike.innerText = "Disikes: " + image.dislikes;
 
