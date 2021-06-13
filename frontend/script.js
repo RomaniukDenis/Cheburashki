@@ -18,7 +18,7 @@ xhr.onload = () => {
 
         btnLike.innerText = "Likes: " + image.likes;
         let btnDisLike= document.createElement("button");
-        btnLike.className = "btnDisLike";
+        btnDisLike.className = "btnDisLike";
         btnDisLike.addEventListener("click", ()=>{window.location=`http://localhost:8888/dislike/${image.name}`})
 
         btnDisLike.innerText = "Disikes: " + image.dislikes;
