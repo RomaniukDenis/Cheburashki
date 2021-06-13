@@ -35,7 +35,8 @@ const server = http.createServer((req, res)=>{
         fs.writeFileSync(path.join(__dirname, "data.json"), JSON.stringify(db),err=>{});
         res.end();
     }
-    else if(req.method == "POST"){
+    else if(req.url == "/api"){
+         if(req.method == "POST"){
         db = JSON.parse(
             fs.readFileSync(path.join(__dirname, "data.json"), (err)=>{
                 if(err){
@@ -65,6 +66,7 @@ const server = http.createServer((req, res)=>{
         });
         res.end(images);
     }
+    } 
 
 });
 

@@ -7,6 +7,7 @@ body{
   margin: 100px;
   width: auto;
   height: auto;
+  padding:50px ; 
   background-color: rgb(102, 90, 90);
   display: flex;
   flex-direction: column;
@@ -191,4 +192,7 @@ input{
 
 .container button:hover {
   background-position: right center;
+}
+.btnDisLike{
+  background-image: linear-gradient(to right, #9EEFE1 0%, red 51%, #9EEFE1 100%) !important;
 }

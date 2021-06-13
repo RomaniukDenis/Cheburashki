@@ -1,6 +1,6 @@
 let xhr = new XMLHttpRequest();
 
-const url = "http://localhost:8888";
+const url = "http://localhost:8888/api";
 
 xhr.open("GET", url);
 
